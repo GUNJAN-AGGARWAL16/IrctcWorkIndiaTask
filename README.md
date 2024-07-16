@@ -1,23 +1,35 @@
-<<<<<<< HEAD
 # WorkIndiaIRCTC
-This is assignment.
 =======
 
-# IRCTC (Railway Reseration System API)
+# IRCTC (Railway Management System API) 
 
-The IRCTC (Railway Management System API) is designed to manage train bookings, allowing users to check train availability between stations, book seats, and manage train schedules. This API is built using Node.js and uses Supabase for PostgreSQL database management.
+The IRCTC (Railway Management System API) is designed where users can come on the platform and check if there are any trains available between 2 stations.
+The app will also display how many seats are available between any 2 stations and the user can book a seat if the availability > 0 after logging in. Since this has to be real-time and multiple users can book seats simultaneously,so the code must be optimized enough to handle large traffic and should not fail while doing any bookings.
+If more than 1 users simultaneously try to book seats, only either one of the users should be able to book. Handle such race conditions while booking.
+There is a Role Based Access provision and 2 types of users would exist :
+1. Admin - can perform all operations like adding trains, updating total seats in a train, etc.
+2. Login users - can check availability of trains, seat availability, book seats, get booking details, etc.
 
 ## Features
 
-- User registration and authentication
-- Role-based access control (Admins and regular users)
-- Train management (Add, and check trains)
-- Seat booking and availability checks
-- Race condition handling using row versioning
+1. Register a User
+Create an endpoint for registering a user.
+2. Login User
+Provide the ability to the user to log into his account
+3. Add a New Train
+An endpoint for the admin to create a new train with a source and destination
+4. Get Seat Availability
+Create an endpoint for the users where they can enter the source and destination and fetch all the trains between that route with their availabilities
+5. Book a Seat
+Create an endpoint for the users to book a seat on a particular train
+6. Get Specific Booking Details
+Create an endpoint for the users to book a seat on a particular train
 
 ## Getting Started
 
-These instructions will get your copy of the project up and running on your local machine for development and testing purposes.
+1.Web Server: Node.js
+
+2.PostgreSQL
 
 ### Prerequisites
 
@@ -30,7 +42,7 @@ These instructions will get your copy of the project up and running on your loca
 1. Clone the repository to your local machine:
 
    ```
-   git clone https://github.com/krishna-kudari/scalable-reservation-system.git
+   git clone 
    ```
 
 2. Install the necessary npm packages:
@@ -81,17 +93,4 @@ The API will be available at `http://localhost:{PORT}`.
 - **GET /api/bookings/details**: Get specific booking details.
 - **GET /api/bookings/userBookings**: Get booking history of a user.
 
-## Development
 
-### Coding Style
-
-My development style is research -> understand flow -> understand tradeoffs -> approach -> write code -> test -> repeat.
-
-### How I Approached this task with my little knowledge of scalability ? 
-checkout https://app.eraser.io/workspace/dkZRn70Tj6wbnshCrhXm 
-
-## Acknowledgments
-
-- web dev cody(youtube) for giving insights on race handling(I used my own approach got his approach gave an idea).
-
->>>>>>> 1467be5111 ([docs] : update readme 📝)
